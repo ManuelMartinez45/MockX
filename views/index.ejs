@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs')  %> 
+<body>
+    <h1>MockX</h1>
+    <div>
+        <% for(product of products) { %> 
+        name: <%= product.name %>
+        <img src="<%= product.img %> " alt="">
+        <details>
+            <summary>Description</summary>
+            <p><%= product.description %> </p>
+        </details>
+        price: <%= product.price %>
+        qty: <%= product.qty %>
+        <img src="<%= product.brandLogo %> " alt="">
+        <% } %> 
+    </div>
+</body>
+</html>
