@@ -23,3 +23,11 @@
 - Bidding System
 - Add Cart
 - Watch List
+- Filters :
+    - Release Date
+    - Color
+    - Size
+    - Brand(Nike, Jordan, Adidas, etc..)
+    - Type(High Top, Low Top, Boots, Active)
+    - Class(yeezy 350, yeezy 700, jordan 4, nike dunk)
+- Add Pagination

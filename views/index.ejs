@@ -2,19 +2,22 @@
 <html lang="en">
 <%- include('../partials/head.ejs')  %> 
 <body>
-    <h1>MockX</h1>
-    <div>
-        <% for(product of products) { %> 
-        name: <%= product.name %>
-        <img src="<%= product.img %> " alt="">
-        <details>
-            <summary>Description</summary>
-            <p><%= product.description %> </p>
-        </details>
-        price: <%= product.price %>
-        qty: <%= product.qty %>
-        <img src="<%= product.brandLogo %> " alt="">
-        <% } %> 
+    <%- include('../partials/nav.ejs')  %> 
+    <div class="grid-container fluid">
+            <div class="grid-x grid-margin-x">
+            <% for(product of products) { %> 
+            <div class="cell small-12 medium-6 large-4">
+                <div class="card ">
+                    <div class="nameHover"></div>
+                    <a href="/products/<%= product._id %> "><img src="<%= product.img %> " alt=""></a> 
+                    <div class="card-divider">
+                        <span class='productHeader'><%= product.name %></span>
+                    </div>
+                </div>
+            </div>
+                <% } %> 
+        </div>
     </div>
+    
 </body>
 </html>

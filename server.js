@@ -36,8 +36,8 @@ mongoose.connect(MONGODB_URI, {
 
 //Middleware
 
-app.use(express.static("public"))
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static("public"))
 app.use(methodOverride("_method")) 
 
 // use productController
@@ -47,6 +47,8 @@ app.use('/', productController)
 db.on("error", (err) => console.log(err.message + " is mongod not running?"))
 db.on("connected", () => console.log("mongod connected: "))
 db.on("disconnected", () => console.log("mongod disconnected"))
+
+
 
 //Listener
 
