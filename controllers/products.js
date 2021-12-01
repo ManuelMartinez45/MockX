@@ -16,14 +16,6 @@ productRouter.get('/seed', (req,res) => {
 // Index
 productRouter.get('/', (req,res) => {
     Product.find({}, (err, allProducts) => {
-        let priceRand = Math.floor(Math.random() * (150 - 350) - 150);
-        let qtyRand = Math.floor(Math.random() * (1 * 15) - 1);
-        priceRand < 0 ? priceRand *= -1 : priceRand
-        qtyRand < 0 ? qtyRand *= -1 : qtyRand
-        for(product of allProducts){
-            product.qty = qtyRand
-            product.price = priceRand
-        }
         console.log(allProducts)
         res.render('index.ejs', {
             products: allProducts
@@ -31,8 +23,20 @@ productRouter.get('/', (req,res) => {
     })
 })
 
-productRouter.get('/products', (req,res) => {
-    res.render('show.ejs')
+// Show
+productRouter.get('/products/:id', (req,res) => {
+    Product.findById(req.params.id, (err, product) => {
+        let priceRand = Math.floor(Math.random() * (150 - 350) - 150);
+        let qtyRand = Math.floor(Math.random() * (1 * 15) - 1);
+        priceRand < 0 ? priceRand *= -1 : priceRand
+        qtyRand < 0 ? qtyRand *= -1 : qtyRand
+        product.qty = qtyRand
+        product.price = priceRand
+        res.render('show.ejs', {
+            product: product
+
+        })
+    })
 })
 
 
