@@ -1,4 +1,6 @@
-
+body{
+    width: 100vw
+}
 /* NAVBAR */
 nav{
     width: 100%;
@@ -8,14 +10,17 @@ nav{
     z-index: 1;    
 }
 
-.menu-text{
-    font-size: 2.2em;
+.top-bar{
+    height: 75px
 }
 
-li > a:hover{
-    color: white
+.top-bar > .top-bar-left{
+    height: 50px
 }
 
+.top-bar > .top-bar-right{
+    height: 50px
+}
 
 /* INDEX */
 .grid-container{
@@ -46,6 +51,48 @@ span{
 }
 
 /* SHOW */
-.NAMEO{
-    color: red
+.breadcrumbs{
+    padding-left: 30px;
+}
+.showContainer{
+    margin-top: 7em;
+}
+
+.showImg{
+    width: 50%
+}
+
+.textBlock{
+   width:40%;
+   position: absolute;
+   top: 275px;
+   right: -3.2em
+}
+
+.showDescription{
+   text-align: center;
+   width: 100%;
+   margin: 50px;
+   font-size: 18px;
+}
+
+.price, .stock{
+    font-size: 25px;
+    font-weight: bold
+}
+
+.productPrice{
+    color: #3adb76
+}
+
+.productStock{
+    color: rgb(248, 46, 46)
+}
+
+#brandLogo{
+    display: flex;
+    justify-content: center;
+    margin: 120px 30%;
+    width: 40%;
+    height: 25em;
 }
