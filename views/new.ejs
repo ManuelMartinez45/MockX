@@ -3,5 +3,41 @@
 <%- include('../partials/head.ejs')  %> 
 <body>
    <%- include('../partials/nav.ejs') %>  
+   <div class="grid-container full newGrid">
+      <form class='formDiv'>
+         <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+               <label>
+                  Name
+               <input type="text" placeholder=".medium-6.cell">
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>
+                  Price: 
+                  <input type="number" placeholder="$">
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>
+                  Stock 
+                  <input type="number" >
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>
+                  Brand 
+                  <input type="text" >
+               </label>
+            </div>
+            <div class="medium-6 medium-offset-3 cell">
+               <label>
+                  Description
+                  <textarea name="" id="" cols="30" rows="4"></textarea>
+               </label>
+            </div>
+         </div>
+   </form>
+</div>
 </body>
 </html>
