@@ -23,8 +23,15 @@ productRouter.get('/', (req,res) => {
 })
 
 // New
-productRouter.get('/new', (req,res) => {
+productRouter.get('/sell', (req,res) => {
     res.render('new.ejs')
+})
+
+// Delete
+productRouter.delete('/:id', (req,res) => {
+    Product.findByIdAndDelete(req.params.id, (err, product) => {
+        res.redirect('/')
+    })
 })
 
 // Show
