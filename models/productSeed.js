@@ -1,5 +1,4 @@
-const priceRand = parseInt(Math.floor(Math.random() * (150 - 350) - 150));
-const qtyRand = Number(Math.floor(Math.random() * (1 * 15) - 1));
+
 
 const brandLogos = {
     jordan: 'https://www.nicekicks.com/files/2020/06/air-jordan-jumpman-logo.jpg',
@@ -15,7 +14,9 @@ module.exports = [
         img: 'https://cdn.flightclub.com/TEMPLATE/248952/1.jpg',
         color: 'Grey',
         brand: 'Jordan',
-        brandLogo: brandLogos.jordan
+        brandLogo: brandLogos.jordan,
+        price: 275,
+        qty: 4
     },
     {
         name: 'Yeezy Boost 700 "Sun"',
@@ -23,7 +24,9 @@ module.exports = [
         img: 'https://sixfiguresneakerhead.com/media/adidas-Yeezy-Boost-700-Sun-Price-2.jpg',
         color: 'Yellow',
         brand: 'Yeezy',
-        brandLogo: brandLogos.yeezy
+        brandLogo: brandLogos.yeezy,
+        price: 325,
+        qty: 7
     },
     {
         name: 'Jordan 4 Retro "Bred"',
@@ -31,7 +34,9 @@ module.exports = [
         img: 'https://sneakernews.com/wp-content/uploads/2019/05/air-jordan-4-bred-2019-release-date-4.jpg?w=1140',
         color: 'Black',
         brand: 'Jordan',
-        brandLogo: brandLogos.jordan
+        brandLogo: brandLogos.jordan,
+        price: 315,
+        qty: 5
     },
     {
         name: 'Nike Sacai Waffle "Fragment Grey"',
@@ -39,7 +44,9 @@ module.exports = [
         img: 'https://2app.kicksonfire.com/kofapp/upload/events_master_images/ipad_fragment-x-sacai-x-nike-ldwaffle-light-smoke-grey.jpeg',
         color: 'Grey',
         brand: 'Nike',
-        brandLogo: brandLogos.nike
+        brandLogo: brandLogos.nike,
+        price: 180,
+        qty: 11
     },
     {
         name: 'Yeezy Boost 350 V2 "Blue Tint"',
@@ -47,7 +54,9 @@ module.exports = [
         img: 'https://cdn.flightclub.com/TEMPLATE/802390/1.jpg',
         color: 'Grey',
         brand: 'Yeezy',
-        brandLogo: brandLogos.adidas
+        brandLogo: brandLogos.adidas,
+        price: 325,
+        qty: 4
     },
     {
         name: 'Nike Dunk Low "Michigan"',
@@ -55,7 +64,9 @@ module.exports = [
         img: 'https://sneakernews.com/wp-content/uploads/2020/12/Nike-Dunk-Low-Michigan-2021-0.jpg',
         color: 'Yellow Blue',
         brand: 'Nike',
-        brandLogo: brandLogos.nike
+        brandLogo: brandLogos.nike,
+        price: 160,
+        qty: 6
     },
     {
         name: 'OFF WHITE Black Air Max 90',
@@ -63,7 +74,9 @@ module.exports = [
         img: 'https://image.goat.com/crop/750/attachments/product_template_additional_pictures/images/017/763/491/original/466439_01.jpg.jpeg?1547150496',
         color: 'Black',
         brand: 'Nike',
-        brandLogo: brandLogos.nike
+        brandLogo: brandLogos.nike,
+        price: 400,
+        qty: 2
     },
     {
         name: 'Jordan 4 Retro "University Blue"',
@@ -71,7 +84,8 @@ module.exports = [
         img: 'https://cdn.shopify.com/s/files/1/0255/9429/8467/products/air-jordan-4-university-blue-CT8527-400_1_1800x1800.jpg?v=1629477566',
         color: 'Blue',
         brand: 'Jordan',
-        brandLogo: brandLogos.jordan
-
+        brandLogo: brandLogos.jordan,
+        price: 280,
+        qty: 4
     }
 ]
