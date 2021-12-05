@@ -1,5 +1,5 @@
 body{
-    width: 100vw
+    width: 100vw;
 }
 /* NAVBAR */
 nav{
@@ -104,8 +104,12 @@ span{
     position: absolute;
     left: 20%;
     border: 1px solid gray;
-    background: lightgray;
+    background: #e6e6e6;
     width: 50%;
     padding: 20px
 }
 
+.submitBtn{
+    margin: 15px 40%;
+    font-size: 1em
+}

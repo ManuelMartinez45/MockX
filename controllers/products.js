@@ -34,18 +34,55 @@ productRouter.delete('/:id', (req,res) => {
     })
 })
 
+// Update
+productRouter.put('/:id', (req,res) => {
+    for(let key in req.body){
+        if(!req.body[key]) delete req.body[key]
+    }
+    Product.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        (err, product) => {
+            res.redirect(`/${req.params.id}`)
+        }
+    )
+})
+
+// Create
+productRouter.post('/', (req,res) => {
+    Product.create(req.body, (err, newProduct) => {
+        res.redirect('/')
+    })
+})
+
+// Edit
+productRouter.get('/:id/edit', (req,res) => {
+    Product.findById(req.params.id, (err, product) => {
+        res.render('edit.ejs', {
+            product: product
+        })
+    })
+})
 // Show
 productRouter.get('/:id', (req,res) => {
     Product.findById(req.params.id, (err, product) => {
-        let priceRand = Math.floor(Math.random() * (150 - 350) - 150);
-        let qtyRand = Math.floor(Math.random() * (1 * 15) - 1);
-        priceRand < 0 ? priceRand *= -1 : priceRand
-        qtyRand < 0 ? qtyRand *= -1 : qtyRand
-        product.qty = qtyRand
-        product.price = priceRand
         res.render('show.ejs', {
             product: product
         })
+    })
+})
+
+// Buy
+productRouter.get('/:id/buy', (req,res) => {
+    Product.findById(req.params.id, (err, product) => {
+        if(product.qty){
+            product.qty--
+            product.save(() => {
+                res.redirect(`/${product._id}`)
+            })
+        }else{
+            res.redirect(`/${product._id}`)
+        }
     })
 })
 

@@ -7,7 +7,7 @@
 <body>
    <%- include('../partials/nav.ejs') %>  
    <div class="grid-container full newGrid">
-      <form class='formDiv' action='/' method='POST'>
+      <form class='formDiv' action='/<%= product._id %>?_method=PUT' method='POST'>
          <div class="grid-x grid-padding-x">
             <div class="medium-6 cell">
                <label>
