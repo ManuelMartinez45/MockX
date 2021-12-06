@@ -14,12 +14,9 @@ productRouter.get('/seed', (req,res) => {
     })
 })
 // Index
-productRouter.get('/', (req,res) => {
-    Product.find({}, (err, allProducts) => {
-        res.render('index.ejs', {
-            products: allProducts
-        })
-    })
+productRouter.get('/', async (req,res) => {
+    const products = await Product.find({})
+    res.render('index.ejs', { products })
 })
 
 // New
@@ -28,62 +25,55 @@ productRouter.get('/sell', (req,res) => {
 })
 
 // Delete
-productRouter.delete('/:id', (req,res) => {
-    Product.findByIdAndDelete(req.params.id, (err, product) => {
-        res.redirect('/')
-    })
+productRouter.delete('/:id', async (req,res) => {
+   const product = await Product.findByIdAndDelete(req.params.id);
+   res.redirect('/')
 })
 
 // Update
-productRouter.put('/:id', (req,res) => {
+productRouter.put('/:id', async (req,res) => {
     for(let key in req.body){
         if(!req.body[key]) delete req.body[key]
     }
-    Product.findByIdAndUpdate(
+    const product = await Product.findByIdAndUpdate(
         req.params.id,
         req.body,
-        (err, product) => {
-            res.redirect(`/${req.params.id}`)
-        }
+        {new: true }
     )
+    res.redirect(`/${req.params.id}`)
 })
 
 // Create
-productRouter.post('/', (req,res) => {
-    Product.create(req.body, (err, newProduct) => {
-        res.redirect('/')
-    })
+productRouter.post('/', async (req,res) => {
+    const product = await Product.create(req.body);
+    res.redirect('/')
+    
 })
 
 // Edit
-productRouter.get('/:id/edit', (req,res) => {
-    Product.findById(req.params.id, (err, product) => {
-        res.render('edit.ejs', {
-            product: product
-        })
-    })
+productRouter.get('/:id/edit', async (req,res) => {
+    const product = await Product.findById(req.params.id)
+    res.render('edit.ejs', { product })
+    
 })
+
 // Show
-productRouter.get('/:id', (req,res) => {
-    Product.findById(req.params.id, (err, product) => {
-        res.render('show.ejs', {
-            product: product
-        })
-    })
+productRouter.get('/:id', async (req,res) => {
+    const product = await Product.findById(req.params.id)
+    res.render('show.ejs', { product })
+    
 })
 
 // Buy
-productRouter.get('/:id/buy', (req,res) => {
-    Product.findById(req.params.id, (err, product) => {
-        if(product.qty){
-            product.qty--
-            product.save(() => {
-                res.redirect(`/${product._id}`)
-            })
-        }else{
-            res.redirect(`/${product._id}`)
-        }
-    })
+productRouter.get('/:id/buy', async (req,res) => {
+    const product = await Product.findById(req.params.id)
+    if(product.qty){
+        product.qty--
+        await product.save()
+        res.redirect(`/${product._id}`)
+    }else{
+        res.redirect(`/${product._id}`)
+    }
 })
 
 
