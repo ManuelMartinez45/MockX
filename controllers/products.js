@@ -13,6 +13,29 @@ productRouter.get('/seed', (req,res) => {
         res.redirect('/')
     })
 })
+
+
+
+// Search
+productRouter.get('/search?', async (req,res) => {
+    let searchTerm = req.query.search;
+    if (searchTerm){
+        const products = await Product.find({
+            $or: [
+                { brand: { $regex: searchTerm }},
+                { name: { $regex: searchTerm }}
+            ]
+        })
+        res.render('search.ejs', {
+            products: products
+        })
+    } else{
+        res.render('search.ejs')
+    }
+})
+
+
+
 // Index
 productRouter.get('/', async (req,res) => {
     const products = await Product.find({})
