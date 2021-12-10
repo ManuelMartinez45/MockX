@@ -6,8 +6,10 @@ const app = express()
 const methodOverride = require("method-override")
 const mongoose = require("mongoose")
 const productController = require('./controllers/products.js')
-const Product = require('./models/product.js')
-const productSeed = require('./models/productSeed')
+const usersController = require('./controllers/users.js')
+const session = require('express-session')
+const bcrypt = require('bcrypt')
+
 
 const db = mongoose.connection
 require('dotenv').config()
@@ -15,15 +17,10 @@ require('dotenv').config()
 
 //___________________
 //Port
-//___________________
-// Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3000
 
-//___________________
-//Database
-//___________________
-// How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI
+
+const { MONGODB_URI, PORT, SECRET } = process.env
+
 
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
@@ -39,8 +36,16 @@ mongoose.connect(MONGODB_URI, {
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static("public"))
 app.use(methodOverride("_method")) 
+app.use(
+  session({
+    secret: SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+)
 
 // use productController
+app.use('/', usersController)
 app.use('/', productController)
 
 // Error / success

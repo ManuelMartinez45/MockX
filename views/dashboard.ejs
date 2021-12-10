@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs')  %> 
+    <title>Home</title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs')  %> 
+    <h1 id='greeting'>Welcome <%= user.firstName %> </h1>
+    <div class="grid-container fluid">
+        <div class="grid-x grid-margin-x">
+            <% for(product of products) { %> 
+                <div class="cell small-12 medium-6 large-4">
+                    <div class="card ">
+                        <a href="/<%= product._id %> "><img src="<%= product.img %> " alt=""></a> 
+                        <div class="card-divider">
+                            <span class='productHeader'><%= product.name %></span>
+                        </div>
+                    </div>
+                </div>
+                <% } %> 
+        </div>
+    </div>
+</body>
+</html>

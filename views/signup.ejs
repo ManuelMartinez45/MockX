@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <% include('../partials/head.ejs') %> 
+   <%- include('../partials/head.ejs')  %> 
    <title>Sign Up</title>
 </head>
 <body>
-    <h1>Sign Up</h1>
-    <form action="/signup" method="POST">
-        <label>
-            Email: 
-            <input type="email" name="email">
-        </label>
-
-        <label>
-            Password: 
-            <input type="password" name="password">
-        </label>
-        <input type="submit" value="Sign Up">
-    </form>
+   <%- include('../partials/nav.ejs') %>  
+   <h1 id='signUp'>Sign Up</h1>
+   <div class="grid-container full newGrid">
+      <form class='signupDiv' action='/signup' method='POST'>
+         <div class="grid-x grid-padding-x">
+            <div class="medium-12 cell">
+               <label>
+                  First Name:
+               <input type="text" placeholder="John" name='firstName'>
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <label>
+                  Last Name:
+                  <input type="text" placeholder="Doe" name='lastName'>
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <label>
+                   Email: 
+                  <input type="email" placeholder="example@email.com" name='email'>
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <label>
+                   Password
+                  <input id='password' type="password" name="password">
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <label>
+                   Confirm Password
+                  <input id='confirm' type="password" name="confirm">
+               </label>
+            </div>
+         </div>
+         <input type="submit" value="Submit" id='submitBtn' class='submitBtn button'>
+   </form>
+</div>
 </body>
 </html>

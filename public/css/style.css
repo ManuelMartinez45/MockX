@@ -1,26 +1,36 @@
-body{
-    width: 100vw;
-}
+
 /* NAVBAR */
 nav{
     width: 100%;
+    height: 35px;
     position: fixed;
     top: 0;
-    line-height: 1.2em;
     z-index: 1;
 }
 
-.top-bar{
-    height: 75px
+#appLogo{
+    position: relative;
+    top: -10px;
+    left: 15px
 }
 
-.top-bar > .top-bar-left{
+#sellBtn{
+    position: relative;
+    top: -10px;
+    right: 15px
+}
+
+.top-bar{
+    padding-top: 15px
+} 
+
+/* .top-bar > .top-bar-left{
     height: 50px
 }
 
 .top-bar > .top-bar-right{
     height: 50px
-}
+} */ */
 
 /* INDEX */
 .grid-container{
@@ -112,4 +122,41 @@ span{
 .submitBtn{
     margin: 15px 40%;
     font-size: 1em
+}
+
+/* Signup */
+.signupDiv{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    border: 1px solid gray;
+    background: #e6e6e6;
+    width: 25%;
+    padding: 20px
+}
+#signUp{
+    margin-top: 7%;
+    text-align: center
+}
+#submitBtn{
+    width: 50%;
+    margin: 0 auto
+}
+
+/* Login */
+
+.loginDiv{
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    border: 1px solid gray;
+    background: #e6e6e6;
+    width: 25%;
+    padding: 20px
+}
+
+.loginDiv > h1 {
+    text-align: center
 }
