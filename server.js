@@ -8,11 +8,19 @@ const mongoose = require("mongoose")
 const productController = require('./controllers/products.js')
 const usersController = require('./controllers/users.js')
 const session = require('express-session')
+const expressFileUpload = require('express-fileupload')
+const cloudinary = require('cloudinary').v2
 const bcrypt = require('bcrypt')
 
 
 const db = mongoose.connection
+
 require('dotenv').config()
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+})
 
 
 //___________________
@@ -43,6 +51,7 @@ app.use(
     saveUninitialized: false,
   })
 )
+app.use(expressFileUpload({ createParentPath: true }))
 
 // use productController
 app.use('/', usersController)

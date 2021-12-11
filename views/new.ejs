@@ -7,7 +7,7 @@
 <body>
    <%- include('../partials/nav.ejs') %>  
    <div class="grid-container full newGrid">
-      <form class='formDiv' action='/' method='POST'>
+      <form class='formDiv' action='/' method='POST' enctype='multipart/form-data'>
          <div class="grid-x grid-padding-x">
             <h1 id='sellItem'>Sell Item</h1>
             <div class="medium-12 cell">
@@ -36,8 +36,15 @@
             </div>
             <div class="medium-12 cell">
                <label>
+                  Type 
+                  <input type="text" placeholder="Jordan(4,11...), Yeezy(700, 350...) etc..." name='subtype'>
+               </label>
+            </div>
+
+            <div class="medium-12 cell">
+               <label>
                   Image: 
-                  <input type="text" placeholder='image' name='img'>
+                  <input type="file" name="img" id="">
                </label>
             </div>
             <div class="medium-12 cell">
