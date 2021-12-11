@@ -24,10 +24,10 @@
             <p class="stock">Left In Stock: <span class="productStock"><%= product.qty %> </span></p>
             
             <form action="/<%= product._id %>/buy" method='GET'>
-                <input class='button large info' <%= product.qty ? '' : 'disabled' %>  type="submit"value="<%= product.qty ? 'BUY' : 'Out of Stock' %> ">
+                <input class='button large info' <%= product.qty ? '' : 'disabled' %>  type="submit"value="<%= product.qty ? 'BUY' : 'Out of Stock' %>">
             </form>
             <form action="/<%= product._id %>/?_method=DELETE" method='POST'>
-                <input type="submit" value="Delete" class='button large alert'>
+                <input type="submit" value="Delete" class='button small alert'>
             </form>
         </section>
         <div class='showDescription'><%= product.description %> </div>

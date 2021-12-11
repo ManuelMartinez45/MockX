@@ -17,11 +17,13 @@
     <div class="top-bar-right">
       <ul class="menu">
         <% if(!user){ %>
+          <i class="material-icons">no_accounts</i>
           <li><a href="/login">Login</a></li>
-          <li><a href="/signup">Sign Up</a></li>
+          <li class='signupLink'><a href="/signup">Sign Up</a></li>
           <% } else{%> 
-            <li class='userGreeting'><%= user.firstName %> </li> 
-            <li><a href="/logout">Logout</a></li>
+            <i class="material-icons account">account_circle</i>
+            <li class='userGreeting'><a href=""><%= user.firstName %></li> 
+            <li><a  class='logout' href="/logout">Logout</a></li>
           <% } %> 
         <li><a href="/sell"><button id='sellBtn' class='button success'>Sell</button></a></li>
       </ul>

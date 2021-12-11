@@ -19,6 +19,7 @@ productRouter.get('/seed', (req,res) => {
 
 // Search
 productRouter.get('/search?', async (req,res) => {
+    const user = await User.findById(req.session.user)
     let searchTerm = req.query.search;
     if (searchTerm){
         const products = await Product.find({
@@ -28,7 +29,8 @@ productRouter.get('/search?', async (req,res) => {
             ]
         })
         res.render('search.ejs', {
-            products: products
+            products: products,
+            user: user
         })
     } else{
         res.render('search.ejs')
@@ -71,9 +73,8 @@ productRouter.put('/:id', async (req,res) => {
 
 // Create
 productRouter.post('/', async (req,res) => {
-    const user = await User.findById(req.session.user)
     const product = await Product.create(req.body);
-    res.redirect('/', { user })
+    res.redirect('/', { product, user })
     
 })
 

@@ -6,42 +6,42 @@
 </head>
 <body>
    <%- include('../partials/nav.ejs') %>  
-   <h1 id='signUp'>Sign Up</h1>
    <div class="grid-container full newGrid">
       <form class='signupDiv' action='/signup' method='POST'>
          <div class="grid-x grid-padding-x">
+            <h1 id='signUp'>Sign Up</h1>
             <div class="medium-12 cell">
                <label>
                   First Name:
-               <input type="text" placeholder="John" name='firstName'>
+               <input type="text" placeholder="John" name='firstName' required>
                </label>
             </div>
             <div class="medium-12 cell">
                <label>
                   Last Name:
-                  <input type="text" placeholder="Doe" name='lastName'>
+                  <input type="text" placeholder="Doe" name='lastName' required>
                </label>
             </div>
             <div class="medium-12 cell">
                <label>
                    Email: 
-                  <input type="email" placeholder="example@email.com" name='email'>
+                  <input type="email" placeholder="example@email.com" name='email' required>
                </label>
             </div>
             <div class="medium-12 cell">
                <label>
                    Password
-                  <input id='password' type="password" name="password">
+                  <input id='password' type="password" name="password" required>
                </label>
             </div>
             <div class="medium-12 cell">
                <label>
                    Confirm Password
-                  <input id='confirm' type="password" name="confirm">
+                  <input id='confirm' type="password" name="confirm" required>
                </label>
             </div>
          </div>
-         <input type="submit" value="Submit" id='submitBtn' class='submitBtn button'>
+         <input  type="submit" value="Submit" id='submitBtn' class='submitBtn button'>
    </form>
 </div>
 </body>

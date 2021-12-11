@@ -41,6 +41,10 @@ usersRouter.get('/logout', (req,res) => {
     })
 })
 
+usersRouter.get('/delete', async (req,res) => {
+    const users = await User.deleteMany({})
+    res.redirect('/')
+})
 
 
 usersRouter.get('/dashboard', async (req,res) => {
