@@ -26,7 +26,7 @@ productRouter.get('/seed', (req,res) => {
 
 
 // Search
-productRouter.get('/search?', async (req,res) => {
+productRouter.get('/search', async (req,res) => {
     const user = await User.findById(req.session.user)
     let searchTerm = req.query.search;
     if (searchTerm){
@@ -45,7 +45,17 @@ productRouter.get('/search?', async (req,res) => {
     }
 })
 
-
+// Brand BreadCrumb 
+productRouter.get('/search/:breadcrumb', async (req,res) => {
+    const products = await Product.find({
+        $or: [
+            { brand: req.params.breadcrumb},
+            { subtype: req.params.breadcrumb}
+        ]
+    })
+    const user = await User.findById(req.session.user)
+    res.render('breadcrumb.ejs', { products, user })
+})
 
 // Index
 productRouter.get('/', async (req,res) => {

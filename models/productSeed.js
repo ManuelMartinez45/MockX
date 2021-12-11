@@ -29,7 +29,7 @@ module.exports = [
         qty: 7
     },
     {
-        name: 'Retro Bred',
+        name: 'Bred',
         description: 'Get some bred while rocking the Jordan 4 Retro Bred 2019 (GS). This AJ 4 comes with a black upper plus grey accents, white midsole plus black accents, and a red sole plus grey accents. These sneakers released in May 2019 and retailed for $140.', 
         img: 'https://sneakernews.com/wp-content/uploads/2019/05/air-jordan-4-bred-2019-release-date-4.jpg?w=1140',
         color: 'Black',

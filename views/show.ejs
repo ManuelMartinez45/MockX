@@ -11,8 +11,8 @@
         <ul class="breadcrumbs">
             <li><a href="/">Home</a></li>
             <li><a href="#">Sneakers</a></li>
-            <li><a href="#"><%= product.brand %></a></li>
-            <li><a href="#"><%= product.subtype %> </a></li>
+            <li><a href="/search/<%= product.brand %>"><%= product.brand %></a></li>
+            <li><a href="/search/<%= product.subtype %>  "><%= product.subtype %> </a></li>
             <li><%= product.name %> </li>
         </ul>
         <section class='cell medium-6 large-6 columns'>
