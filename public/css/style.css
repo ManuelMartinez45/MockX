@@ -178,10 +178,12 @@ span{
     display: flex;
     flex-direction: column;
     justify-self: center;
-    border: 1px solid gray;
+    border: none;
     background: #e6e6e6;
     width: 25%;
-    padding: 20px
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .loginDiv > h1 {
