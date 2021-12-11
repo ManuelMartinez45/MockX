@@ -25,7 +25,7 @@
             <li class='userGreeting'><a href=""><%= user.firstName %></li> 
             <li><a  class='logout' href="/logout">Logout</a></li>
           <% } %> 
-        <li><a href="/sell"><button id='sellBtn' class='button success'>Sell</button></a></li>
+        <li><a href="/sell"><button <% if(!user){%> disabled <%}%>  id='sellBtn' class='button success'>Sell</button></a></li>
       </ul>
     </div>
   </div>
