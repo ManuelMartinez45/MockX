@@ -16,8 +16,13 @@
     </div>
     <div class="top-bar-right">
       <ul class="menu">
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign Up</a></li>
+        <% if(!user){ %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+          <% } else{%> 
+            <li class='userGreeting'><%= user.firstName %> </li> 
+            <li><a href="/logout">Logout</a></li>
+          <% } %> 
         <li><a href="/sell"><button id='sellBtn' class='button success'>Sell</button></a></li>
       </ul>
     </div>

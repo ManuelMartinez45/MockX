@@ -2,6 +2,7 @@
 const productRouter = require('express').Router()
 const Product = require('../models/product.js')
 const productSeed = require('../models/productSeed.js')
+const User = require('../models/user.js')
 
 
 // ROUTES
@@ -39,12 +40,14 @@ productRouter.get('/search?', async (req,res) => {
 // Index
 productRouter.get('/', async (req,res) => {
     const products = await Product.find({})
-    res.render('index.ejs', { products })
+    const user = await User.findById(req.session.user)
+    res.render('index.ejs', { products, user })
 })
 
 // New
-productRouter.get('/sell', (req,res) => {
-    res.render('new.ejs')
+productRouter.get('/sell', async (req,res) => {
+    const user = await User.findById(req.session.user)
+    res.render('new.ejs', { user })
 })
 
 // Delete
@@ -68,22 +71,25 @@ productRouter.put('/:id', async (req,res) => {
 
 // Create
 productRouter.post('/', async (req,res) => {
+    const user = await User.findById(req.session.user)
     const product = await Product.create(req.body);
-    res.redirect('/')
+    res.redirect('/', { user })
     
 })
 
 // Edit
 productRouter.get('/:id/edit', async (req,res) => {
+    const user = await User.findById(req.session.user)
     const product = await Product.findById(req.params.id)
-    res.render('edit.ejs', { product })
+    res.render('edit.ejs', { product, user })
     
 })
 
 // Show
 productRouter.get('/:id', async (req,res) => {
+    const user = await User.findById(req.session.user)
     const product = await Product.findById(req.params.id)
-    res.render('show.ejs', { product })
+    res.render('show.ejs', { product, user })
     
 })
 

@@ -6,23 +6,24 @@ const Product = require('../models/product.js')
 const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 10
 
-usersRouter.get('/login', (req,res) => {
-    res.render('login.ejs', {err: ''})
+usersRouter.get('/login', async (req,res) => {
+    const user = await User.findById(req.session.user)
+    res.render('login.ejs', { user })
 })
 
-usersRouter.post('/login', (req,res) => {
-    User.findOne({ email: req.body.email }, (err, foundUser => {
-        if(!foundUser) return res.render('/login.ejs', { err: 'invalid credentials' })
-        if(!bcrypt.compareSync(req.body.password, foundUser.password)) {
-            return res.render('login.ejs', { err: 'invalid credentials'})
-        }
-        req.session.user = foundUser._id
-        res.redirect('/dashboard')
-    }))
+usersRouter.post('/login', async (req,res) => {
+    const user = await User.findOne({email: req.body.email})
+    if(!user) return res.render('login.ejs', { user: req.session.user, err: 'invalid credentials' })
+    if(!bcrypt.compareSync(req.body.password, user.password)){
+        return res.render('login.ejs', { user: req.session.user, err: 'invalid credentials' })
+    }
+    req.session.user = user._id
+    res.redirect('/dashboard')
 })
 
-usersRouter.get('/signup', (req,res) => {
-    res.render('signup.ejs')
+usersRouter.get('/signup', async (req,res) => {
+    const user = await User.findById(req.session.user)
+    res.render('signup.ejs', { user })
 })
 
 usersRouter.post('/signup', async (req,res) => {
@@ -47,8 +48,7 @@ usersRouter.get('/dashboard', async (req,res) => {
     if(!req.session.user) return res.redirect('/login');
     User.findById(req.session.user, (err, user) => {
         delete user.password
-        console.log(user)
-        res.render('dashboard.ejs', { user, products })
+        res.render('dashboard.ejs', { user: user, products })
     })
 })
 
