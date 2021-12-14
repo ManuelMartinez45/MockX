@@ -48,11 +48,12 @@ i{
 }
 /* INDEX */
 .grid-container{
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .card {
-    margin-top: 50px;
+    margin-top: 70px;
+    margin-bottom: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -188,4 +189,29 @@ span{
 
 .loginDiv > h1 {
     text-align: center
+}
+
+/* Small Media */
+@media (max-width: 720px){
+    .top-bar-left, .top-bar-right{
+        display: flex;
+        justify-content: center;
+        width: 100%
+    }
+    .top-bar-right{
+        margin-left: 20px
+    }
+   #appLogo{
+       margin-left: 30%
+   }
+   .input-group{
+       margin-left: 20%
+   }
+
+   .grid-container{
+       margin-top: 20%;
+   }
+   .showContainer{
+       margin-top: 50%
+   }
 }
