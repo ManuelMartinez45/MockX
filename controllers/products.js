@@ -81,7 +81,6 @@ productRouter.put('/:id', async (req,res) => {
     for(let key in req.body){
         if(!req.body[key]) delete req.body[key]
     }
-    console.log(req.files)
     const image = req.files.img
     image.mv(`./uploads/${image.name}`)
     const result = await cloudinary.uploader.upload(`./uploads/${image.name}`)

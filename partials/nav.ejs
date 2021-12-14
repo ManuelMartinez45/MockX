@@ -25,7 +25,14 @@
             <li class='userGreeting'><a href=""><%= user.firstName %></li> 
             <li><a  class='logout' href="/logout">Logout</a></li>
           <% } %> 
-        <li><a href="/sell"><button <% if(!user){%> disabled <%}%>  id='sellBtn' class='button success'>Sell</button></a></li>
+
+          <% if(!user){ %>
+            <li><a href="/login"><button id='sellBtn' class='button success'>Sell</button></a>
+        </li>
+          <% } else { %> 
+        <li><a href="/sell"><button <% if(!user){%> disabled <%}%>  id='sellBtn' class='button success'>Sell</button></a>
+        </li>
+        <% } %> 
       </ul>
     </div>
   </div>
