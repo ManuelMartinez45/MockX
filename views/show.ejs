@@ -8,19 +8,19 @@
     <%- include('../partials/nav.ejs') %> 
 
     <div class="grid-container showContainer">
-        <ul class="breadcrumbs">
+        <ul class="breadcrumbs cell small-12">
             <li><a href="/">Home</a></li>
             <li><a href="#">Sneakers</a></li>
             <li><a href="/search/<%= product.brand %>"><%= product.brand %></a></li>
             <li><a href="/search/<%= product.subtype %>  "><%= product.subtype %> </a></li>
             <li><%= product.name %> </li>
         </ul>
-        <section class='cell medium-6 large-6 columns'>
+        <section class='cell small-12 medium-6 large-6 columns'>
             <h1 id='showHeader'><%= product.brand %> <%= product.subtype %>  "<%=product.name %>"</h1>
             <img class='showImg'src="<%= product.img %> " alt="">
         </section>
 
-        <section class='textBlock cell medium-4 medium-offset-9 columns'>
+        <section class='textBlock cell small-12 medium-12 large-4 large-offset-9 columns'>
             <p class="price">Price: <span class='productPrice'>$<%= product.price %></span></p>    
             <p class="stock">Left In Stock: <span class="productStock"><%= product.qty %> </span></p>
             
