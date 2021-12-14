@@ -23,10 +23,14 @@
         <section class='textBlock cell small-12 medium-12 large-4 large-offset-9 columns'>
             <p class="price">Price: <span class='productPrice'>$<%= product.price %></span></p>    
             <p class="stock">Left In Stock: <span class="productStock"><%= product.qty %> </span></p>
-            
+
+            <% if(!user){ %> 
+                <a href="/login"><button class='button large success'><%= product.qty ? 'BUY' : 'Out of Stock' %></button></a>
+            <% } else{ %> 
             <form action="/<%= product._id %>/buy" method='GET'>
-                <input class='button large success' <%= product.qty ? '' : 'disabled' %>  type="submit"value="<%= product.qty ? 'BUY' : 'Out of Stock' %>" <% if(!user) { %> disabled <% } %> >
+                <input class='button lare success'type="submit"value="<%= product.qty ? 'BUY' : 'Out of Stock' %>">
             </form>
+            <% } %> 
             <a <% if(!user) { %> style='display:none' <% } %>   href="/<%= product._id %>/edit "><button class="button hollow small info"> Edit </button></a>
             <form action="/<%= product._id %>/?_method=DELETE" method='POST'>
                 <input type="submit" value="Delete" class='button hollow small alert' <% if(!user) { %> style='display:none' <% } %> >
