@@ -27,7 +27,7 @@
 - Foundation FrameWork
 
 # Screenshots
-![Screenshot 1](/Users/manuelmartinez/Desktop/GeneralAssembly/WORK/Unit_2/MockX/screenshots/Screen Shot 2021-12-14 at 6.59.18 PM.png)
+![Screenshot 1]('/Users/manuelmartinez/Desktop/GeneralAssembly/WORK/Unit_2/MockX/screenshots/Screen Shot 2021-12-14 at 6.59.18 PM.png')
 
 # Future Enhancements 
 - Bidding System
