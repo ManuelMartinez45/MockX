@@ -29,6 +29,10 @@
 # Screenshots
 ![Screen Shot 2021-12-14 at 6 59 18 PM](https://user-images.githubusercontent.com/22863727/146099035-930cb302-8aba-4a84-85a0-a4975644e8bc.png)
 
+![Screen Shot 2021-12-14 at 6 59 28 PM](https://user-images.githubusercontent.com/22863727/146099115-6f5cb917-5274-48d5-a27d-9212935a2291.png)
+
+![Screen Shot 2021-12-14 at 6 59 36 PM](https://user-images.githubusercontent.com/22863727/146099151-a7e40a6c-20c5-44b7-a2e0-5ab309f7058f.png)
+
 # Future Enhancements 
 - Bidding System
 - Shopping Cart
