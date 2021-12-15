@@ -33,6 +33,9 @@
 
 ![Screen Shot 2021-12-14 at 6 59 36 PM](https://user-images.githubusercontent.com/22863727/146099151-a7e40a6c-20c5-44b7-a2e0-5ab309f7058f.png)
 
+# Getting Started
+[Live Site](https://mock-x.herokuapp.com/)
+
 # Future Enhancements 
 - Bidding System
 - Shopping Cart
