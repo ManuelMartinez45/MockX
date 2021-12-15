@@ -27,7 +27,7 @@
 - Foundation FrameWork
 
 # Screenshots
-![Screenshot 1]('screenshots/Screen Shot 2021-12-14 at 6.59.18 PM.png')
+![Screen Shot 2021-12-14 at 6 59 18 PM](https://user-images.githubusercontent.com/22863727/146099035-930cb302-8aba-4a84-85a0-a4975644e8bc.png)
 
 # Future Enhancements 
 - Bidding System
