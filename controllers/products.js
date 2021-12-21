@@ -81,11 +81,14 @@ productRouter.put('/:id', async (req,res) => {
     for(let key in req.body){
         if(!req.body[key]) delete req.body[key]
     }
-    const image = req.files.img
-    image.mv(`./uploads/${image.name}`)
-    const result = await cloudinary.uploader.upload(`./uploads/${image.name}`)
-    req.body.img = result.secure_url;
-    const product = await Product.findByIdAndUpdate(
+    const image = req.files?.img
+    if(image) {
+        image.mv(`./uploads/${image.name}`)
+        const result = await cloudinary.uploader.upload(`./uploads/${image.name}`)
+        req.body.img = result.secure_url;
+    }
+
+    await Product.findByIdAndUpdate(
         req.params.id,
         req.body,
         {new: true }
